@@ -1,0 +1,89 @@
+Go meet Hyd
+26 Jul 2014
+.image ./gopher-150.png
+Tags: go golang
+
+Javed Khan
+@tuxcanfly
+
+* Intro
+
+- Erstwhile Pythonista, Ex-Agiliq
+- Bitcoin Hacker, Conformal Systems, Chicago, IL
+.link https://www.conformal.com/ Conformal Systems, Chicago, IL
+
+* Today's topics
+
+- Intro to Go
+- Tao of Go
+- Syntax
+- Interfaces
+- Goroutines
+- Channels
+
+* Intro to Go
+
+What is Go:
+
+- developed at Google, 2007
+- by Robert Griesemer, Rob Pike, and Ken Thompson
+- statically typed (with duck typing)
+- type safe, garbage collected
+- syntax resembles C
+- batteries included - stdlib
+- win/mac arm/amd/intel support with cross compilation
+
+    "When the three of us got started, it was pure research. The three of us got
+    together and decided that we hated C++. We started off with the idea that all
+    three of us had to be talked into every feature in the language, so there was
+    no extraneous garbage put into the language for any reason."
+
+- Rob
+
+* Tao of Go
+
+*Less is more*
+
+- minimal, clean language spec
+- no classes, type hierarchy
+- no syntax sugar
+- OCD friendly (go fmt, compiler error: unused var/import)
+
+    "There has been much talk about component architectures but only one true
+    success: Unix pipes."
+
+- Rob
+
+* Hello world
+
+.play hello.go
+
+Did you know: Rob Pike is the co-author of the UTF-8 spec
+
+* FizzBuzz
+
+.play fizzbuzz.go
+
+Here, now go apply for a Go programming role!
+
+* Type, structs
+
+.play types.go
+
+.play structs.go
+
+* More syntax examples
+
+- while True => `for { }`
+
+* Interaces
+
+.play interfaces.go
+
+* Goroutines
+
+.play goroutines.go
+
+* Channels
+
+.play channels.go
