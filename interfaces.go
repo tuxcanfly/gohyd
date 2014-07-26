@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "math"
 
-type geometry interface {
+type shape interface {
 	area() float64
 }
 
@@ -22,10 +22,14 @@ func (c circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
+func printer(sh shape) {
+	fmt.Println("Area of shape:", sh.area())
+}
+
 func main() {
 	s := square{width: 3, height: 4}
 	c := circle{radius: 5}
 
-	fmt.Println(s.area())
-	fmt.Println(c.area())
+	printer(s)
+	printer(c)
 }

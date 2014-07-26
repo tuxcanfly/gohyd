@@ -1,6 +1,5 @@
 Go meet Hyd
 26 Jul 2014
-.image ./gopher-150.png
 Tags: go golang
 
 Javed Khan
@@ -8,9 +7,13 @@ Javed Khan
 
 * Intro
 
+.image ./gopher-150.png
+
 - Erstwhile Pythonista, Ex-Agiliq
 - Bitcoin Hacker, Conformal Systems, Chicago, IL
 .link https://www.conformal.com/ Conformal Systems, Chicago, IL
+
+.image ./conformal-logo.png
 
 * Today's topics
 
@@ -62,9 +65,9 @@ Did you know: Rob Pike is the co-author of the UTF-8 spec
 
 * FizzBuzz
 
-.play fizzbuzz.go
-
 Here, now go apply for a Go programming role!
+
+.play fizzbuzz.go
 
 * Type, structs
 
@@ -75,6 +78,10 @@ Here, now go apply for a Go programming role!
 * More syntax examples
 
 - while True => `for { }`
+- import pkg as alias .. => import alias "pkg"
+- Print(*args) => func Print(comments ...string)
+- named returns => func Print (s string) (err error)
+- with => defer
 
 * Interaces
 
@@ -87,3 +94,15 @@ Here, now go apply for a Go programming role!
 * Channels
 
 .play channels.go
+
+* Things I liked
+
+- static typing
+- minimalism
+- deployment
+- tooling - godef, gocode
+
+* Things I didn't like
+
+- debugging
+- if err != nil
