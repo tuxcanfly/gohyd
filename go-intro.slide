@@ -1,108 +1,180 @@
-Go meet Hyd
-26 Jul 2014
-Tags: go golang
+Bitcoin
+Currency of the Internet
+1 Nov 2015
+Tags: bitcoin, barcampblr
 
 Javed Khan
+hacker, btcsuite
+tuxcanfly@gmail.com
+http://tuxcanfly.me
 @tuxcanfly
 
 * Intro
 
-.image ./gopher-150.png
+.image bitcoin.png
 
-- Erstwhile Pythonista, Ex-Agiliq
-- Bitcoin Hacker, Conformal Systems, Chicago, IL
-.link https://www.conformal.com/ Conformal Systems, Chicago, IL
+Decentralized digital currency based on a P2P protocol
 
-.image ./conformal-logo.png
+btcd - go implementation
 
-* Today's topics
+.image btcsuite.png
 
-- Intro to Go
-- Tao of Go
-- Syntax
-- Interfaces
-- Goroutines
-- Channels
+* Uses
 
-* Intro to Go
+Send/receive payments instantly, for free, anonymously*
 
-What is Go:
+*Conditions applied
 
-- developed at Google, 2007
-- by Robert Griesemer, Rob Pike, and Ken Thompson
-- statically typed (with duck typing)
-- type safe, garbage collected
-- syntax resembles C
-- batteries included - stdlib
-- win/mac arm/amd/intel support with cross compilation
+* P2P Cryptocurrency
 
-    "When the three of us got started, it was pure research. The three of us got
-    together and decided that we hated C++. We started off with the idea that all
-    three of us had to be talked into every feature in the language, so there was
-    no extraneous garbage put into the language for any reason."
+Assumptions: Majority of nodes are honest
 
-- Rob
+Features:
 
-* Tao of Go
+- Authentication
+- Data Integrity
+- Validation
 
-*Less is more*
+Problems:
 
-- minimal, clean language spec
-- no classes, type hierarchy
-- no syntax sugar
-- OCD friendly (go fmt, compiler error: unused var/import)
+- Identity and auth
+- Double Spend
 
-    "There has been much talk about component architectures but only one true
-    success: Unix pipes."
+* Identity
 
-- Rob
+ECDSA key pair - each bitcoin address has one
 
-* Hello world
+Similar to RSA key pair used for SSH
 
-.play hello.go
+Funds can be spent by signing a tx with the private key
 
-Did you know: Rob Pike is the co-author of the UTF-8 spec
+* Double Spend
 
-* FizzBuzz
+Find the smallest string containing "Hello World!" whose SHA256 hash contains 4
+leading 0s
 
-Here, now go apply for a Go programming role!
+* Answer
 
-.play fizzbuzz.go
+Brute Force - "Hello World!167018"
 
-* Type, structs
+Solving involves CPU time
 
-.play types.go
+* Proof of work
 
-.play structs.go
+- Moderately hard problem with easy verification
+- Like a vote with your CPU
 
-* More syntax examples
+* Transaction
 
-- while True => `for { }`
-- import pkg as alias .. => import alias "pkg"
-- Print(*args) => func Print(comments ...string)
-- named returns => func Print (s string) (err error)
-- with => defer
+- inputs, outputs
+- tx script
+- Signed with ECDSA key pair
+- confirmed when included in a block
 
-* Interaces
+OP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG
 
-.play interfaces.go
 
-* Goroutines
+* Blocks, blockchain
 
-.play goroutines.go
+Block:
 
-* Channels
+- are 'mined'
+- collection of new transactions
+- solution to POW
+- coinbase - reward for mining
 
-.play channels.go
+Longest POW chain:
 
-* Things I liked
+- most time and effort spent
+- validated using block headers
+- accepted by majority
 
-- static typing
-- minimalism
-- deployment
-- tooling - godef, gocode
+* Mining
 
-* Things I didn't like
+- Process of finding valid blocks
+- Solve POW and broadcast solution
+- Time ~10mins
+- Hardware specific
 
-- debugging
-- if err != nil
+* IoT
+
+.image gambling.png
+
+* Wallets
+
+- Manage private keys of addresses
+- Accounts
+- Hierarchically Deterministic (BIP 0032)
+
+* SPV clients
+
+- Lightweight alternative to full node
+- Uses Bloom Filters to avoid blockchain download
+- Examples: BitcoinJ, Multibit
+
+* Wallet Setup
+
+- Bitcoin-QT
+- Electrum
+- Mycelium
+- Bitcoin wallet for Android
+- Multibit
+- Breadwallet iOS
+
+* Security
+
+- Keep your private keys safe
+- Encrypt database
+- Use change address
+- Avoid address reuse
+
+* Miners
+
+CPU mining - outdated
+
+GPUs and ASICs:
+
+- Antminer
+- BFL
+- KNC
+
+* Mining Farms
+
+.image miningfarm.png
+
+Grosses $1.5M a month
+
+* API
+
+JSON-RPC server
+
+Examples:
+
+- getblock
+- getnewaddress
+- getreceivedbyaddress
+- gettransaction
+- listunspent
+- sendfrom
+- sendrawtransaction
+
+* Hacking
+
+- github.com/libbitcoin
+- github.com/btcsuite
+
+* btcsuite
+
+btcd:
+
+- btcrpcclient
+- btcjson
+- wire
+- peer
+- blockchain
+- txscript
+- btcec
+- database
+- btcutil
+
+btcwallet
